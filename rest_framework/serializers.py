@@ -40,6 +40,13 @@ from rest_framework.relations import *  # NOQA
 from rest_framework.fields import *  # NOQA
 
 
+def _hasattr(obj, name):
+    try:
+        return hasattr(obj, name)
+    except Exception:
+        return False
+
+
 def _resolve_model(obj):
     """
     Resolve supplied `obj` to a Django model class.
@@ -952,7 +959,7 @@ class ModelSerializer(Serializer):
             if (
                 field_name in exclusions
                 and not field.read_only
-                and (field.required or hasattr(instance, field_name))
+                and (field.required or _hasattr(instance, field_name))
                 and not isinstance(field, Serializer)
             ):
                 exclusions.remove(field_name)

@@ -40,6 +40,13 @@ You can determine your currently installed version using `pip freeze`:
 
 ## 2.4.x series
 
+### 2.4.9
+
+**Date**: 17 August 2016
+
+* Bugfix: attribute check in validation for python 3 uses.
+
+
 ### 2.4.8
 
 **Date**: 18 August 2015
